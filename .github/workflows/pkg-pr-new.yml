@@ -1,5 +1,8 @@
 name: pkg-pr-new
 
+env:
+  VP_TOKEN: ${{ secrets.VP_TOKEN }}
+
 on:
   push:
     branches: [main]

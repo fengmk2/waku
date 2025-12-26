@@ -1,5 +1,5 @@
 import ts from 'typescript';
-import { expect, test } from 'vitest';
+import { expect, test } from '@voidzero-dev/vite-plus/test';
 import { allowServerPlugin } from '../src/lib/vite-plugins/allow-server.js';
 
 const compileTsx = (code: string) =>

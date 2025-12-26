@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { expectType } from 'ts-expect';
 import type { TypeEqual } from 'ts-expect';
-import { assert, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { MockedFunction } from 'vitest';
+import { assert, beforeEach, describe, expect, it, vi } from '@voidzero-dev/vite-plus/test';
+import type { MockedFunction } from '@voidzero-dev/vite-plus/test';
 import { parsePathWithSlug } from '../src/lib/utils/path.js';
 import type { PathsForPages } from '../src/router/base-types.js';
 import type { GetSlugs } from '../src/router/create-pages-utils/inferred-path-types.js';

@@ -24,7 +24,7 @@
     "compile": "rm -rf template dist *.tsbuildinfo && pnpm run template && pnpm run build",
     "template": "cp -r ../../examples template && rm -rf template/*/dist && rm -rf template/*/node_modules && rm -rf template/*.tsbuildinfo && (for d in template/*; do mv $d/.gitignore $d/gitignore || true; done)",
     "build": "tsup",
-    "test": "npm_config_user_agent=pnpm vitest run"
+    "test": "npm_config_user_agent=pnpm vite test run"
   },
   "devDependencies": {
     "@clack/prompts": "^0.11.0",
@@ -36,6 +36,7 @@
     "tar": "^7.5.2",
     "tsup": "^8.5.1",
     "update-check": "^1.5.4",
-    "vitest": "^4.0.16"
+    "vitest": "catalog:",
+    "@voidzero-dev/vite-plus": "catalog:"
   }
 }

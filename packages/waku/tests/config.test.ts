@@ -1,5 +1,5 @@
 import { expectType } from 'ts-expect';
-import { expect, test } from 'vitest';
+import { expect, test } from '@voidzero-dev/vite-plus/test';
 import { type Config, defineConfig } from '../src/config.js';
 
 // Absolutely meaningless unit and type test examples.
