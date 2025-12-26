@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { readdir, writeFile } from 'node:fs/promises';
 import type * as estree from 'estree';
 import type { Plugin } from 'vite';
-import { parseAstAsync, transformWithEsbuild } from 'vite';
+import { parse, transformWithEsbuild } from 'vite';
 import { EXTENSIONS, SRC_PAGES, SRC_SERVER_ENTRY } from '../constants.js';
 import { getGrouplessPath } from '../utils/create-pages.js';
 import { isIgnoredPath } from '../utils/fs-router.js';
@@ -69,7 +69,8 @@ const parseModule = async (filePath: string) => {
     loader,
     jsx: 'preserve',
   });
-  return parseAstAsync(transformed.code, { jsx: true });
+  return (await parse('input.jsx', transformed.code))
+    .program as unknown as estree.Program;
 };
 
 const getImportedName = (specifier: estree.ImportSpecifier) =>
