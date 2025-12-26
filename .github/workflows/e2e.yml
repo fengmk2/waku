@@ -1,5 +1,8 @@
 name: E2E
 
+env:
+  VP_TOKEN: ${{ secrets.VP_TOKEN }}
+
 on:
   push:
     branches: [main]

@@ -9,7 +9,7 @@ import {
   expect,
   onTestFailed,
   test,
-} from 'vitest';
+} from '@voidzero-dev/vite-plus/test';
 
 const CLI_PATH = path.join(import.meta.dirname, '../../dist/index.js');
 
