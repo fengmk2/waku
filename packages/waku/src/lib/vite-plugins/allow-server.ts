@@ -1,9 +1,9 @@
 import type * as estree from 'estree';
 import MagicString from 'magic-string';
 import type { Plugin } from 'vite';
-import { parseAstAsync } from 'vite';
+import { parse } from 'vite';
 
-type ProgramNode = Awaited<ReturnType<typeof parseAstAsync>>;
+type ProgramNode = estree.Program;
 
 const isNode = (value: unknown): value is estree.Node =>
   typeof (value as { type?: unknown })?.type === 'string'; // heuristic
@@ -247,7 +247,8 @@ export function allowServerPlugin(): Plugin {
         return;
       }
 
-      const mod = await parseAstAsync(code, { jsx: true });
+      const mod = (await parse('input.jsx', code))
+        .program as unknown as ProgramNode;
       if (!hasDirective(mod, 'use client')) {
         return;
       }
